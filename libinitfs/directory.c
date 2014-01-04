@@ -29,3 +29,4 @@ signed int verifyDirectoryAmount(initfs_directory_map_t toDetect)
 	unsigned int detected_no = detectDirectoryAmount(toDetect);
 	return directory_map_no - detected_no; //Should return 0 if both are the same, a negative number if detected_no is more, positive if detected_no is less
 }
+
