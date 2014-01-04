@@ -3,7 +3,7 @@
 #define byte unsigned char
 typedef struct
 {
-	byte magic;
+	byte magic; //F5
 	byte fs_version;
 	byte flags;
 	byte builder_identity;

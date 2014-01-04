@@ -1,11 +1,11 @@
 #include <initfs.h>
 #include <libinitfs.h>
-const char* getDirectoryLabel(initfs_directory_entry_t entry)
+const char* initfs_getDirectoryLabel(initfs_directory_entry_t entry)
 {
 	return (const char *)entry.name;
 }
 
-unsigned int detectDirectoryAmount(initfs_directory_map_t toDetect)
+unsigned int initfs_detectDirectoryAmount(initfs_directory_map_t toDetect)
 {
 	int i=0;
 	unsigned int count = 0;
@@ -25,7 +25,7 @@ unsigned int detectDirectoryAmount(initfs_directory_map_t toDetect)
 	return count;
 }
 
-signed int verifyDirectoryAmount(initfs_directory_map_t toDetect)
+signed int initfs_verifyDirectoryAmount(initfs_directory_map_t toDetect)
 {
 	unsigned int directory_map_no=toDetect.no_directories;
 	unsigned int detected_no = detectDirectoryAmount(toDetect);

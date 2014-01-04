@@ -1,7 +1,7 @@
 #include <initfs.h>
 #include <libinitfs.h>
 #include <stdio.h>
-initfs_permissions_t getPermissions(initfs_directory_entry_t entry)
+initfs_permissions_t initfs_getPermissions(initfs_directory_entry_t entry)
 {
 	switch(entry.attributes)
 	{
@@ -17,7 +17,7 @@ initfs_permissions_t getPermissions(initfs_directory_entry_t entry)
 	}
 }
 
-void setPermissions(initfs_directory_entry_t *entry, initfs_permissions_t level)
+void initfs_setPermissions(initfs_directory_entry_t *entry, initfs_permissions_t level)
 {
 	if(entry->attributes != NO_ACCESS)
 	{
@@ -29,7 +29,7 @@ void setPermissions(initfs_directory_entry_t *entry, initfs_permissions_t level)
 	}
 }
 
-void setPermissions_force(initfs_directory_entry_t *entry, initfs_permissions_t level)
+void initfs_setPermissions_force(initfs_directory_entry_t *entry, initfs_permissions_t level)
 {
 	if(entry->attributes == NO_ACCESS)
 	{
@@ -38,7 +38,7 @@ void setPermissions_force(initfs_directory_entry_t *entry, initfs_permissions_t 
 	entry->attributes=level;
 }
 
-int verifyPermissions(initfs_directory_entry_t entry)
+int initfs_verifyPermissions(initfs_directory_entry_t entry)
 {
 	initfs_permissions_t level = getPermissions(entry);
 	if (level != entry.attributes)
