@@ -1,3 +1,5 @@
+#include <initfs.h>
+#include <libinitfs.h>
 const char* getDirectoryLabel(initfs_directory_entry_t entry)
 {
 	return (const char *)entry.name;
