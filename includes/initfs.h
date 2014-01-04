@@ -16,7 +16,12 @@ struct initfs_directory_map
 	unsigned int directory_entries[127];
 };
 
-
+struct initfs_directory_entry
+{
+	byte name[46];
+	byte id;
+	byte attributes; // 0 - NO ACCESS, 1 - READ
+};
 
 struct initfs_entry {
 	byte magic; //0xF5
