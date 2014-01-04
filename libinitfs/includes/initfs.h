@@ -19,7 +19,7 @@ typedef struct
 
 typedef struct
 {
-	byte name[46];
+	char name[46];
 	byte id;
 	byte attributes; // 0 - NO ACCESS, 1 - READ
 } initfs_directory_entry_t;
@@ -28,11 +28,19 @@ typedef struct
 {
 	byte magic; //0xF5
 	byte type; // 0 - file, 1 - executable
-	byte name[48];
+	char name[48];
 	unsigned int data_addr;
-	unsigned int data_lenght;
+	unsigned int data_length;
 	unsigned short filler; //To make it 64 bytes.
 } initfs_entry_t;
 
+typedef struct
+{
+	unsigned int address; //Relative to start of volume
+	unsigned int length;
+} initfs_data_pointer_t;
+
+
 typedef enum { NO_ACCESS, READ, READ_WRITE } initfs_permissions_t;
+typedef enum { ENTRY_FILE, ENTRY_EXECTUABLE, ENTRY_NOT_A_ENTRY } initfs_entrytypes_t;
 #endif

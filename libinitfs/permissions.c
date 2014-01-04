@@ -40,7 +40,7 @@ void initfs_setPermissions_force(initfs_directory_entry_t *entry, initfs_permiss
 
 int initfs_verifyPermissions(initfs_directory_entry_t entry)
 {
-	initfs_permissions_t level = getPermissions(entry);
+	initfs_permissions_t level = initfs_getPermissions(entry);
 	if (level != entry.attributes)
 	{
 		return 1;

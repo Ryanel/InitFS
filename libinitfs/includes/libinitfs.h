@@ -16,6 +16,12 @@ signed int initfs_verifyDirectoryAmount(initfs_directory_map_t toDetect);
 //Superblock
 int initfs_verifySuperblockIntegrety(initfs_superblock_t superblock);
 const char * initfs_getBuilderIdentity(initfs_superblock_t superblock);
-void initfs_verifyDevKey(initfs_superblock_t superblock);
+int initfs_verifyDevKey(initfs_superblock_t superblock);
+
+//Entry
+int initfs_entryVerifyMagic(initfs_entry_t entry);
+const char* initfs_getEntryLabel(initfs_entry_t entry);
+int initfs_entryHasData(initfs_entry_t entry);
+initfs_data_pointer_t initfs_getEntryDataPointer(initfs_entry_t entry);
 
 #endif

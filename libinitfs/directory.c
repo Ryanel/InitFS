@@ -2,7 +2,8 @@
 #include <libinitfs.h>
 const char* initfs_getDirectoryLabel(initfs_directory_entry_t entry)
 {
-	return (const char *)entry.name;
+	const char *name = entry.name;
+	return name;
 }
 
 unsigned int initfs_detectDirectoryAmount(initfs_directory_map_t toDetect)
@@ -28,7 +29,7 @@ unsigned int initfs_detectDirectoryAmount(initfs_directory_map_t toDetect)
 signed int initfs_verifyDirectoryAmount(initfs_directory_map_t toDetect)
 {
 	unsigned int directory_map_no=toDetect.no_directories;
-	unsigned int detected_no = detectDirectoryAmount(toDetect);
+	unsigned int detected_no = initfs_detectDirectoryAmount(toDetect);
 	return directory_map_no - detected_no; //Should return 0 if both are the same, a negative number if detected_no is more, positive if detected_no is less
 }
 

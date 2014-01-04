@@ -13,14 +13,14 @@ int initfs_verifySuperblockIntegrety(initfs_superblock_t superblock)
 	}
 	if(superblock.builder_identity)
 	{
-		if( getBuilderIdentity(superblock) == 0)
+		if( initfs_getBuilderIdentity(superblock) == 0)
 		{
 			return 3;
 		}
 	}
 	if(superblock.dev_key)
 	{
-		if( verifyDevKey(superblock) != 0)
+		if( initfs_verifyDevKey(superblock) != 0)
 		{
 			return 4;
 		}
@@ -43,7 +43,7 @@ const char * initfs_getBuilderIdentity(initfs_superblock_t superblock)
 	}
 }
 
-void initfs_verifyDevKey(initfs_superblock_t superblock)
+int initfs_verifyDevKey(initfs_superblock_t superblock)
 {
 	switch(superblock.dev_key)
 	{
