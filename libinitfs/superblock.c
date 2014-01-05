@@ -20,7 +20,7 @@ int initfs_verifySuperblockIntegrety(initfs_superblock_t superblock)
 	}
 	if(superblock.dev_key)
 	{
-		if( initfs_verifyDevKey(superblock) != 0)
+		if( initfs_verifyDevKey(superblock) == 1)
 		{
 			return 4;
 		}
@@ -36,6 +36,8 @@ const char * initfs_getBuilderIdentity(initfs_superblock_t superblock)
 {
 	switch(superblock.builder_identity)
 	{
+		case 0x0:
+			return "unknown";
 		case 0x1: //Only valid dev key. Add more to this list as more become avalable
 			return "initfscreate";
 		default:
@@ -48,8 +50,8 @@ int initfs_verifyDevKey(initfs_superblock_t superblock)
 	switch(superblock.dev_key)
 	{
 		case 0x12: //Only valid dev key. Add more to this list as more become avalable
-			return 0;
-		default:
 			return 1;
+		default:
+			return 0;
 	}
 }
