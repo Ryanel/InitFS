@@ -21,7 +21,7 @@ typedef struct
 {
 	char name[46];
 	byte id;
-	byte attributes; // 0 - NO ACCESS, 1 - READ
+	byte attributes; // 0 - NO ACCESS, 1 - READ 2 - RW
 } initfs_directory_entry_t;
 
 typedef struct
@@ -31,7 +31,7 @@ typedef struct
 	char name[48];
 	unsigned int data_addr;
 	unsigned int data_length;
-	unsigned short filler; //To make it 64 bytes.
+	unsigned short dir_id; //what directory it is in. short to make it 64 bytes
 } initfs_entry_t;
 
 typedef struct
