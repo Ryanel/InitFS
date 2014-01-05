@@ -29,9 +29,10 @@ typedef struct
 	byte magic; //0xF5
 	byte type; // 0 - file, 1 - executable
 	char name[48];
+	unsigned short dir_id; //what directory it is in. short to make it 64 bytes
 	unsigned int data_addr;
 	unsigned int data_length;
-	unsigned short dir_id; //what directory it is in. short to make it 64 bytes
+	
 } initfs_entry_t;
 
 typedef struct
