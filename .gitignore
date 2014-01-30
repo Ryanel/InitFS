@@ -6,3 +6,6 @@ cmake_install.cmake
 
 initfscreate
 initfsmod
+
+*.o
+*.a
